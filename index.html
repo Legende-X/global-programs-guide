@@ -47,7 +47,7 @@
     font-family: 'Raleway', sans-serif;
     font-size: 13px;
     font-weight: 500;
-    color: var(--orange);
+    color: #fff;
     letter-spacing: 3px;
     text-transform: uppercase;
   }
@@ -86,10 +86,10 @@
 
   .hero-edition {
     font-family: 'Jost', sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 400;
-    color: var(--orange);
-    letter-spacing: 5px;
+    color: #fff;
+    letter-spacing: 2px;
     text-transform: uppercase;
     margin-bottom: 14px;
     position: relative;
@@ -98,8 +98,8 @@
   .hero-title {
     font-family: 'Oswald', sans-serif;
     font-weight: 700;
-    color: #fff;
-    font-size: clamp(1.9rem, 4.5vw, 3.4rem);
+    color: var(--orange);
+    font-size: clamp(2.6rem, 6.5vw, 5rem);
     line-height: 1.05;
     letter-spacing: 1px;
     margin-bottom: 56px;
@@ -111,7 +111,7 @@
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     color: rgba(255,255,255,0.6);
-    font-size: clamp(1.05rem, 2vw, 1.35rem);
+    font-size: clamp(1.125rem, 2.1vw, 1.4375rem);
     font-weight: 400;
     max-width: 780px;
     margin: 0 auto;
@@ -141,11 +141,11 @@
   }
 
   .filter-btn {
-    padding: 9px 22px;
+    padding: 10px 22px;
     border: 1px solid var(--gray-border);
     background: transparent;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1rem;
+    font-size: 1.125rem;
     color: var(--black);
     cursor: pointer;
     transition: all 0.2s ease;
@@ -261,7 +261,7 @@
 
   .program-name {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.18rem;
+    font-size: 1.3rem;
     font-weight: 600;
     color: var(--blue);
     margin-bottom: 4px;
@@ -270,7 +270,7 @@
 
   .program-type {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 0.86rem;
+    font-size: 0.985rem;
     color: var(--gray-soft);
     font-style: italic;
     margin-bottom: 16px;
@@ -287,7 +287,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 0.92rem;
+    font-size: 1.045rem;
   }
 
   .meta-key {
@@ -332,7 +332,7 @@
     text-align: center;
     padding: 60px 20px;
     color: var(--gray-soft);
-    font-size: 1.1rem;
+    font-size: 1.225rem;
     font-style: italic;
     display: none;
   }
@@ -343,7 +343,7 @@
     margin: 0 auto;
     padding: 32px 28px 48px;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 0.88rem;
+    font-size: 1rem;
     color: var(--gray-soft);
     font-style: italic;
     line-height: 1.7;
@@ -373,10 +373,42 @@
     .brand-logo svg { height: 44px; }
     .footer-band { padding: 20px 24px; }
     .hero { padding: 56px 24px 70px; }
-    .filter-bar { padding: 18px 24px; gap: 8px; }
     .grid-wrap { padding: 32px 16px 40px; }
     .programs-grid { grid-template-columns: 1fr; }
     .brand-tagline, .footer-text { font-size: 11px; letter-spacing: 2px; }
+
+    /* ── MOBILE FILTER BAR: 2×3 grid layout ── */
+    .filter-bar {
+      padding: 20px 20px 16px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    /* FILTER BY label on its own line */
+    .filter-label {
+      width: 100%;
+      margin-bottom: 4px;
+      font-size: 10px;
+    }
+
+    /* Button container becomes a 2-column grid */
+    .filter-btn-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      width: 100%;
+    }
+
+    /* All buttons: equal width, equal height, centered text */
+    .filter-btn {
+      width: 100%;
+      padding: 12px 8px;
+      text-align: center;
+      font-size: 1rem;
+      white-space: normal;
+      line-height: 1.2;
+    }
   }
 </style>
 </head>
@@ -400,12 +432,14 @@
 <!-- FILTER BAR -->
 <div class="filter-bar">
   <span class="filter-label">Filter by:</span>
-  <button class="filter-btn active" onclick="filterCards('all', this)">All Fields</button>
-  <button class="filter-btn" onclick="filterCards('ai', this)">AI &amp; Tech</button>
-  <button class="filter-btn" onclick="filterCards('business', this)">Business</button>
-  <button class="filter-btn" onclick="filterCards('health', this)">Health</button>
-  <button class="filter-btn" onclick="filterCards('trade', this)">Skilled Trades</button>
-  <button class="filter-btn" onclick="filterCards('creative', this)">Creative &amp; Design</button>
+  <div class="filter-btn-group">
+    <button class="filter-btn active" onclick="filterCards('all', this)">All Fields</button>
+    <button class="filter-btn" onclick="filterCards('ai', this)">AI &amp; Tech</button>
+    <button class="filter-btn" onclick="filterCards('business', this)">Business</button>
+    <button class="filter-btn" onclick="filterCards('health', this)">Health</button>
+    <button class="filter-btn" onclick="filterCards('trade', this)">Skilled Trades</button>
+    <button class="filter-btn" onclick="filterCards('creative', this)">Creative &amp; Design</button>
+  </div>
 </div>
 
 <!-- GRID -->
